@@ -1,3 +1,6 @@
+NOT FOR PUBLIC RELEASE!
+
+
 [![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-porch-template.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-porch-template)
 
 # Disciple Tools - Porch Template
