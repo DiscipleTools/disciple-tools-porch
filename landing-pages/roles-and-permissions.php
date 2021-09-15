@@ -5,12 +5,12 @@ if ( !defined( 'ABSPATH' )) {
 
 
 /**
- * DT_Porch_Template_Landing_Roles Class
+ * DT_Porch_Landing_Roles Class
  *
  * @package  Disciple_Tools
  * @since    0.1.0
  */
-class DT_Porch_Template_Landing_Roles
+class DT_Porch_Landing_Roles
 {
     // needs to match post-type.php
     public $post_type = PORCH_LANDING_POST_TYPE;
@@ -26,7 +26,7 @@ class DT_Porch_Template_Landing_Roles
     public function __construct() {
         add_filter( 'dt_set_roles_and_permissions', [ $this, 'dt_set_roles_and_permissions' ], 50, 1 );
         add_filter( 'dt_allow_rest_access', [ $this, 'dt_allow_rest_access' ] ); // allows access
-        add_filter( 'allowed_wp_v2_paths', [ $this, 'dt_porch_template_allowed_wp_v2_paths' ], 10, 1 );
+        add_filter( 'allowed_wp_v2_paths', [ $this, 'dt_porch_allowed_wp_v2_paths' ], 10, 1 );
     }
 
     public function dt_set_roles_and_permissions( $expected_roles ){
@@ -68,7 +68,7 @@ class DT_Porch_Template_Landing_Roles
         return $authorized;
     }
 
-    public function dt_porch_template_allowed_wp_v2_paths( $allowed_wp_v2_paths ) {
+    public function dt_porch_allowed_wp_v2_paths( $allowed_wp_v2_paths ) {
         if ( user_can( get_current_user_id(), 'wp_api_allowed_user' ) ) {
 
             $allowed_wp_v2_paths[] = '/wp/v2/'.PORCH_LANDING_POST_TYPE;
@@ -115,4 +115,4 @@ class DT_Porch_Template_Landing_Roles
     }
 
 } // End Class
-DT_Porch_Template_Landing_Roles::instance();
+DT_Porch_Landing_Roles::instance();

@@ -9,13 +9,13 @@ if ( !defined( 'ABSPATH' )) {
 
 
 /**
- * DT_Porch_Template_Landing_Post_Type Class
- * All functionality pertaining to project update post types in DT_Porch_Template_Landing_Post_Type.
+ * DT_Porch_Landing_Post_Type Class
+ * All functionality pertaining to project update post types in DT_Porch_Landing_Post_Type.
  *
  * @package  Disciple_Tools
  * @since    0.1.0
  */
-class DT_Porch_Template_Landing_Post_Type
+class DT_Porch_Landing_Post_Type
 {
 
     public $post_type;
@@ -167,4 +167,4 @@ class DT_Porch_Template_Landing_Post_Type
         }
     }
 } // End Class
-DT_Porch_Template_Landing_Post_Type::instance();
+DT_Porch_Landing_Post_Type::instance();

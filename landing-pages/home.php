@@ -1,7 +1,7 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-class DT_Porch_Template_Landing_Home extends DT_Magic_Url_Base
+class DT_Porch_Landing_Home extends DT_Magic_Url_Base
 {
     public $magic = false;
     public $parts = false;
@@ -55,15 +55,15 @@ class DT_Porch_Template_Landing_Home extends DT_Magic_Url_Base
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return DT_Porch_Template_Landing_Enqueue::load_allowed_scripts();
+        return DT_Porch_Landing_Enqueue::load_allowed_scripts();
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
-        return DT_Porch_Template_Landing_Enqueue::load_allowed_styles();
+        return DT_Porch_Landing_Enqueue::load_allowed_styles();
     }
 
     public function wp_enqueue_scripts() {
-        DT_Porch_Template_Landing_Enqueue::load_scripts();
+        DT_Porch_Landing_Enqueue::load_scripts();
     }
 
     public function body(){
@@ -102,4 +102,4 @@ class DT_Porch_Template_Landing_Home extends DT_Magic_Url_Base
 
 
 }
-DT_Porch_Template_Landing_Home::instance();
+DT_Porch_Landing_Home::instance();

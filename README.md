@@ -1,9 +1,9 @@
 NOT FOR PUBLIC RELEASE!
 
 
-[![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-porch-template.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-porch-template)
+[![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-porch.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-porch)
 
-# Disciple Tools - Porch Template
+# Disciple Tools - Porch
 
 Description Description Description Description Description Description Description
 Description Description Description Description Description Description Description
@@ -41,11 +41,11 @@ Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose 
 ## Contribution
 
 Contributions welcome. You can report issues and bugs in the
-[Issues](https://github.com/DiscipleTools/disciple-tools-porch-template/issues) section of the repo. You can present ideas
-in the [Discussions](https://github.com/DiscipleTools/disciple-tools-porch-template/discussions) section of the repo. And
-code contributions are welcome using the [Pull Request](https://github.com/DiscipleTools/disciple-tools-porch-template/pulls)
+[Issues](https://github.com/DiscipleTools/disciple-tools-porch/issues) section of the repo. You can present ideas
+in the [Discussions](https://github.com/DiscipleTools/disciple-tools-porch/discussions) section of the repo. And
+code contributions are welcome using the [Pull Request](https://github.com/DiscipleTools/disciple-tools-porch/pulls)
 system for git. For a more details on contribution see the
-[contribution guidelines](https://github.com/DiscipleTools/disciple-tools-porch-template/blob/master/CONTRIBUTING.md).
+[contribution guidelines](https://github.com/DiscipleTools/disciple-tools-porch/blob/master/CONTRIBUTING.md).
 
 
 ## Screenshots

@@ -2,4 +2,4 @@
 {translation-domain}-{localisation}.po
 
 ex:
-disciple-tools-porch-template-fr_FR.po
+disciple-tools-porch-fr_FR.po

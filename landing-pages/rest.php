@@ -7,8 +7,8 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
  * @version 1
  */
 
-if ( ! class_exists( 'DT_Porch_Template_Lead_Form' ) ) {
-    class DT_Porch_Template_Lead_Form {
+if ( ! class_exists( 'DT_Porch_Lead_Form' ) ) {
+    class DT_Porch_Lead_Form {
 
         private static $_instance = null;
         public static function instance() {
@@ -180,5 +180,5 @@ if ( ! class_exists( 'DT_Porch_Template_Lead_Form' ) ) {
             return $data;
         }
     }
-    DT_Porch_Template_Lead_Form::instance();
+    DT_Porch_Lead_Form::instance();
 }

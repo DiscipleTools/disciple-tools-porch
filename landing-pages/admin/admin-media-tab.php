@@ -2,12 +2,12 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly
 
 /**
- * Class DT_Porch_Template_Menu
+ * Class DT_Porch_Menu
  */
-class DT_Porch_Template_Landing_Media_Tab {
+class DT_Porch_Landing_Media_Tab {
 
-    public $token = 'disciple_tools_porch_template';
-    public $title = 'Porch Template';
+    public $token = 'disciple_tools_porch';
+    public $title = 'Porch';
 
     private static $_instance = null;
     public static function instance() {
@@ -56,4 +56,4 @@ class DT_Porch_Template_Landing_Media_Tab {
         <?php
     }
 }
-DT_Porch_Template_Landing_Media_Tab::instance();
+DT_Porch_Landing_Media_Tab::instance();

@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-porch-template.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-porch-template)
+[![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-porch.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-porch)
 
-# Disciple Tools - Porch Template
+# Disciple Tools - Porch
 
 __Kick start your Disciple.Tools porch plugin project with this template!__
 
@@ -30,7 +30,7 @@ __This plugin is for developers__ who want to extend the Disciple.Tools system f
  1. Wordpress code style requirements. ```phpcs.xml```
  1. PHP Code Sniffer support (composer) @use ```/vendor/bin/phpcs``` and ```/vendor/bin/phpcbf```
  1. Travis Continuous Integration ([travis-ci.com](https://travis-ci.com)). ```travis.yml```
- 1. Disciple.Tools Theme presence check. ```dt_porch_template()```
+ 1. Disciple.Tools Theme presence check. ```dt_porch()```
  1. Remote upgrade system for ongoing updates outside the Wordpress Directory.
  1. Multilingual support. ```/languages``` & ```default.pot```
 
@@ -59,65 +59,65 @@ __This plugin is for developers__ who want to extend the Disciple.Tools system f
 ## Contribution
 
 Contributions welcome. You can report issues and bugs in the
-[Issues](https://github.com/DiscipleTools/disciple-tools-porch-template/issues) section of the repo. You can present ideas
-in the [Discussions](https://github.com/DiscipleTools/disciple-tools-porch-template/discussions) section of the repo. And
-code contributions are welcome using the [Pull Request](https://github.com/DiscipleTools/disciple-tools-porch-template/pulls)
+[Issues](https://github.com/DiscipleTools/disciple-tools-porch/issues) section of the repo. You can present ideas
+in the [Discussions](https://github.com/DiscipleTools/disciple-tools-porch/discussions) section of the repo. And
+code contributions are welcome using the [Pull Request](https://github.com/DiscipleTools/disciple-tools-porch/pulls)
 system for git. For a more details on contribution see the
-[contribution guidelines](https://github.com/DiscipleTools/disciple-tools-porch-template/blob/master/CONTRIBUTING.md).
+[contribution guidelines](https://github.com/DiscipleTools/disciple-tools-porch/blob/master/CONTRIBUTING.md).
 
 ## Screenshots
 
 __Home-1__ (Pray4Movement example dark, large start image, animations)
 
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-1-screenshot-1.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-1-screenshot-2.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-1-screenshot-3.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-1-screenshot-4.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-1-screenshot-5.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-1-screenshot-1.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-1-screenshot-2.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-1-screenshot-3.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-1-screenshot-4.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-1-screenshot-5.jpg)
 
 __Home-2__ (Simple, Big images, White and Image)
 
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-2-screenshot-1.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-2-screenshot-2.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-2-screenshot-3.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-2-screenshot-4.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-2-screenshot-5.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-2-screenshot-1.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-2-screenshot-2.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-2-screenshot-3.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-2-screenshot-4.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-2-screenshot-5.jpg)
 
 __Home-3__ (Parallax, White/Green, thin sections, sticky top nav)
 
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-3-screenshot-1.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-3-screenshot-2.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-3-screenshot-3.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-3-screenshot-4.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-3-screenshot-1.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-3-screenshot-2.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-3-screenshot-3.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-3-screenshot-4.jpg)
 
 __Home-4__ (Large sections, white/light blue)
 
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-4-screenshot-1.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-4-screenshot-3.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-4-screenshot-4.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-4-screenshot-5.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-4-screenshot-6.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-4-screenshot-1.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-4-screenshot-3.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-4-screenshot-4.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-4-screenshot-5.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-4-screenshot-6.jpg)
 
 __Home-5__ (Big sections, hover effects/animations, color schemes: blue, teal, lightgreen, green, purple, orange)
 
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-5-screenshot-1.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-5-screenshot-2.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-5-screenshot-3.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-5-screenshot-4.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-5-screenshot-5.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-5-screenshot-1.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-5-screenshot-2.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-5-screenshot-3.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-5-screenshot-4.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-5-screenshot-5.jpg)
 
 __Home-6__ (simple, greeen/white, bold)
 
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-6-screenshot-1.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-6-screenshot-2.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-6-screenshot-3.jpg)
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-6-screenshot-4.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-6-screenshot-1.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-6-screenshot-2.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-6-screenshot-3.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-6-screenshot-4.jpg)
 
 __Home-7__ (one page image)
 
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-7-screenshot.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-7-screenshot.jpg)
 
 __Home-8__ (one page background video)
 
-![screenshot](https://github.com/DiscipleTools/disciple-tools-porch-template/raw/master/support/documentation/community/readme-files/template-8-screenshot.jpg)
+![screenshot](https://github.com/DiscipleTools/disciple-tools-porch/raw/master/support/documentation/community/readme-files/template-8-screenshot.jpg)
 

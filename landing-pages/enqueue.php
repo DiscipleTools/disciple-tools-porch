@@ -2,7 +2,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
 
-class DT_Porch_Template_Landing_Enqueue
+class DT_Porch_Landing_Enqueue
 {
     public static function load_scripts() {
         wp_enqueue_style( 'porch-style-css', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/landing.css', array(), filemtime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'css/landing.css' ), 'all' );

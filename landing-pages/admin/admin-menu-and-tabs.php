@@ -2,11 +2,11 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly
 
 /**
- * Class DT_Porch_Template_Menu
+ * Class DT_Porch_Menu
  */
-class DT_Porch_Template_Landing_Menu {
+class DT_Porch_Landing_Menu {
 
-    public $token = 'dt_porch_template';
+    public $token = 'dt_porch';
     public $title = 'Settings';
 
     private static $_instance = null;
@@ -69,11 +69,11 @@ class DT_Porch_Template_Landing_Menu {
             <?php
             switch ($tab) {
                 case "general":
-                    $object = new DT_Porch_Template_Landing_Tab_General();
+                    $object = new DT_Porch_Landing_Tab_General();
                     $object->content();
                     break;
                 case "second":
-                    $object = new DT_Porch_Template_Landing_Tab_Second();
+                    $object = new DT_Porch_Landing_Tab_Second();
                     $object->content();
                     break;
                 default:
@@ -86,13 +86,13 @@ class DT_Porch_Template_Landing_Menu {
         <?php
     }
 }
-DT_Porch_Template_Landing_Menu::instance();
+DT_Porch_Landing_Menu::instance();
 
 
 /**
- * Class DT_Porch_Template_Tab_General
+ * Class DT_Porch_Tab_General
  */
-class DT_Porch_Template_Landing_Tab_General {
+class DT_Porch_Landing_Tab_General {
     public function content() {
         ?>
         <div class="wrap">
@@ -207,9 +207,9 @@ class DT_Porch_Template_Landing_Tab_General {
 
 
 /**
- * Class DT_Porch_Template_Tab_Second
+ * Class DT_Porch_Tab_Second
  */
-class DT_Porch_Template_Landing_Tab_Second {
+class DT_Porch_Landing_Tab_Second {
     public function content() {
         ?>
         <div class="wrap">
