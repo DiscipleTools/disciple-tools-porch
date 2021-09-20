@@ -19,17 +19,17 @@ if ( ! class_exists( 'DT_Porch_Lead_Form' ) ) {
         } // End instance()
 
         public function __construct() {
-            if ( ! defined( 'PORCH_ROOT' ) || ! defined( 'PORCH_TYPE' ) ) {
-                dt_write_log( 'You must define PORCH_ROOT and PORCH_TYPE in the loader.php file' );
+            if ( ! defined( 'PORCH_LANDING_ROOT' ) || ! defined( 'PORCH_LANDING_TYPE' ) ) {
+                dt_write_log( 'You must define PORCH_LANDING_ROOT and PORCH_LANDING_TYPE in the loader.php file' );
                 return;
             }
             add_action( 'rest_api_init', [ $this, 'add_api_routes' ] );
         }
 
         public function add_api_routes() {
-            $namespace = PORCH_ROOT . '/v1';
+            $namespace = PORCH_LANDING_ROOT . '/v1';
             register_rest_route(
-                $namespace, '/' . PORCH_TYPE, [
+                $namespace, '/' . PORCH_LANDING_TYPE, [
                     [
                         'methods'  => "POST",
                         'callback' => [ $this, 'endpoint' ],

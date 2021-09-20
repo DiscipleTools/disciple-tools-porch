@@ -3,11 +3,11 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
 class DT_Porch_Landing_Home extends DT_Magic_Url_Base
 {
-    public $magic = false;
-    public $parts = false;
-    public $page_title = 'Home';
-    public $root = "porch_app";
-    public $type = 'home';
+    public $page_title = PORCH_LANDING_POST_TYPE_SINGLE;
+    public $root = PORCH_LANDING_ROOT;
+    public $type = PORCH_LANDING_TYPE;
+    public $post_type = PORCH_LANDING_POST_TYPE;
+    public $meta_key = PORCH_LANDING_META_KEY;
 
     private static $_instance = null;
     public static function instance() {
@@ -22,12 +22,7 @@ class DT_Porch_Landing_Home extends DT_Magic_Url_Base
 
         $url = dt_get_url_path();
         if ( empty( $url ) && ! dt_is_rest() ) {
-
-            /**
-             * Section loads a number of actions/filters that Magic Link Base fails to load
-             * because the home page is a non-standard root use of magic link. The parsing tests of
-             * the url fail, but are re-added here.
-             */
+            require_once( 'enqueue.php' );
 
             // register url and access
             add_action( "template_redirect", [ $this, 'theme_redirect' ] );
@@ -37,17 +32,24 @@ class DT_Porch_Landing_Home extends DT_Magic_Url_Base
             }, 100, 1 );
 
             // header content
+            // register url and access
+            add_filter( 'dt_blank_access', [ $this, '_has_access' ] ); // gives access once above tests are passed
+            add_filter( 'dt_templates_for_urls', [ $this, 'register_url' ], 199, 1 ); // registers url as valid once tests are passed
+            add_filter( 'dt_allow_non_login_access', function (){ // allows non-logged in visit
+                return true;
+            }, 100, 1 );
             add_filter( "dt_blank_title", [ $this, "page_tab_title" ] ); // adds basic title to browser tab
-            add_action( 'wp_print_scripts', [ $this, 'print_scripts' ], 1500 ); // authorizes scripts
+            add_action( 'wp_print_scripts', [ $this, 'print_scripts' ], 5 ); // authorizes scripts
+            add_action( 'wp_print_footer_scripts', [ $this, 'print_scripts' ], 5 ); // authorizes scripts
             add_action( 'wp_print_styles', [ $this, 'print_styles' ], 1500 ); // authorizes styles
+
+            add_action( 'dt_blank_head', [ $this, '_header' ] );
+            add_action( 'dt_blank_footer', [ $this, '_footer' ] );
 
 
             // page content
-            add_action( 'dt_blank_head', [ $this, '_header' ] );
-            add_action( 'dt_blank_footer', [ $this, '_footer' ] );
             add_action( 'dt_blank_body', [ $this, 'body' ] ); // body for no post key
 
-            require_once( 'enqueue.php' );
             add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
             add_filter( 'dt_magic_url_base_allowed_js', [ $this, 'dt_magic_url_base_allowed_js' ], 10, 1 );
             add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ], 99 );
@@ -55,11 +57,11 @@ class DT_Porch_Landing_Home extends DT_Magic_Url_Base
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return DT_Porch_Landing_Enqueue::load_allowed_scripts();
+        return DT_Porch_Landing_Enqueue::load_allowed_scripts( $allowed_js );
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
-        return DT_Porch_Landing_Enqueue::load_allowed_styles();
+        return DT_Porch_Landing_Enqueue::load_allowed_styles( $allowed_css );
     }
 
     public function wp_enqueue_scripts() {
@@ -69,14 +71,9 @@ class DT_Porch_Landing_Home extends DT_Magic_Url_Base
     public function body(){
         // body
         $my_postid = get_option( PORCH_LANDING_META_KEY . '_home_page' );
-        $post_status = get_post_status( $my_postid );
-        if ( 'publish' === $post_status ) {
-            $content_post = get_post( $my_postid );
-            $content = $content_post->post_content;
-            $content = apply_filters( 'the_content', $content );
-            $content = str_replace( ']]>', ']]&gt;', $content );
-            echo $content; // @phpcs:ignore
-        }
+        $content_post = get_post( $my_postid );
+        $content = $content_post->post_content;
+        echo $content; // @phpcs:ignore
     }
 
     public function footer_javascript(){

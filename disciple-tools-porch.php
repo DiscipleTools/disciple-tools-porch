@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Disciple Tools - Porch
+ * Plugin Name: Disciple.Tools - Porch
  * Plugin URI: https://github.com/DiscipleTools/disciple-tools-porch
  * Description: Adds a customizable home page and landing page system on the public side of Disciple Tools.
  * Text Domain: disciple-tools-porch
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return object|bool
  */
 function dt_porch() {
-    $dt_porch_required_dt_theme_version = '1.8.1';
+    $dt_porch_required_dt_theme_version = '1.8';
     $wp_theme = wp_get_theme();
     $version = $wp_theme->version;
 
@@ -76,14 +76,46 @@ class DT_Porch {
 
     private function __construct() {
 
-        require_once( 'landing-pages/loader.php' ); /* framework for dynamic landing pages*/
 
-        if ( is_admin() ) {
-            require_once( 'support/required-plugins/class-tgm-plugin-activation.php' );
-            require_once( 'support/required-plugins/config-required-plugins.php' );
+        if ( ! defined( 'PORCH_LANDING_ROOT' ) ) {
+            define( 'PORCH_LANDING_ROOT', 'p' ); // Alphanumeric key. Use underscores not hyphens. No special characters.
+        }
+        if ( ! defined( 'PORCH_LANDING_TYPE' ) ) {
+            define( 'PORCH_LANDING_TYPE', 'page' ); // Alphanumeric key. Use underscores not hyphens. No special characters. Must be less than 20 characters
+        }
+        if ( ! defined( 'PORCH_LANDING_META_KEY' ) ) {
+            define( 'PORCH_LANDING_META_KEY', PORCH_LANDING_ROOT . '_' . PORCH_LANDING_TYPE . '_magic_key' ); // Alphanumeric key. Use underscores not hyphens. No special characters. Must be less than 20 characters
+        }
+        if ( ! defined( 'PORCH_LANDING_POST_TYPE' ) ) {
+            define( 'PORCH_LANDING_POST_TYPE', 'porch' ); // Alphanumeric key. Use underscores not hyphens. No special characters. Must be less than 20 characters
+        }
+        if ( ! defined( 'PORCH_LANDING_POST_TYPE_SINGLE' ) ) {
+            define( 'PORCH_LANDING_POST_TYPE_SINGLE', 'Porch' ); // Alphanumeric key. Use underscores not hyphens. No special characters. Must be less than 20 characters
+        }
+        if ( ! defined( 'PORCH_LANDING_POST_TYPE_PLURAL' ) ) {
+            define( 'PORCH_LANDING_POST_TYPE_PLURAL', 'Porch Pages' ); // Alphanumeric key. Use underscores not hyphens. No special characters. Must be less than 20 characters
         }
 
-        if ( is_admin() ){
+        // load required files
+        require_once( 'landing-pages/roles-and-permissions.php' );
+        require_once( 'landing-pages/landing-post-type.php' );
+        require_once( 'landing-pages/rest.php' );
+        require_once( 'landing-pages/home.php' );
+        require_once( 'landing-pages/landing.php' );
+
+
+        // load admin files only if in admin
+        if ( is_admin() ) {
+            $required_admin_files = scandir( plugin_dir_path( __FILE__ ) . '/admin' );
+            foreach ( $required_admin_files as $file ) {
+                if ( substr( $file, -4, '4' ) === '.php' ) {
+                    require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . '/admin/' . $file );
+                }
+            }
+
+            require_once( 'support/required-plugins/class-tgm-plugin-activation.php' );
+            require_once( 'support/required-plugins/config-required-plugins.php' );
+
             add_filter( 'plugin_row_meta', [ $this, 'plugin_description_links' ], 10, 4 ); // admin plugin page description
         }
         $this->i18n();

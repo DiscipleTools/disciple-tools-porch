@@ -30,33 +30,40 @@ class DT_Porch_Landing_Roles
     }
 
     public function dt_set_roles_and_permissions( $expected_roles ){
+        $permissions = [
+            // rest access for blocks editor
+            'wp_api_allowed_user' => true,
+
+            // wp-admin dashboard access
+            'read' => true,
+
+            // landing page access
+            'create_'.$this->post_type => true,
+            'edit_'.$this->post_type => true,
+            'read_'.$this->post_type => true,
+            'delete_'.$this->post_type => true,
+            'delete_others_'.$this->post_type.'s',
+            'delete_'.$this->post_type.'s' => true,
+            'edit'.$this->post_type.'s' => true,
+            'edit_others_'.$this->post_type.'s' => true,
+            'publish_'.$this->post_type.'s' => true,
+            'read_private_'.$this->post_type.'s' => true,
+
+            'edit_files' => true,
+            'upload_files' => true,
+        ];
+
         if ( !isset( $expected_roles["porch_admin"] ) ){
             $expected_roles["porch_admin"] = [
                 "label" => __( 'Porch Admin', 'disciple_tools' ),
                 "description" => "Administrates porch public pages",
-                "permissions" => [
-                    // rest access for blocks editor
-                    'wp_api_allowed_user' => true,
-
-                    // wp-admin dashboard access
-                    'read' => true,
-
-                    // landing page access
-                    'create_'.$this->post_type => true,
-                    'edit_'.$this->post_type => true,
-                    'read_'.$this->post_type => true,
-                    'delete_'.$this->post_type => true,
-                    'delete_others_'.$this->post_type.'s',
-                    'delete_'.$this->post_type.'s' => true,
-                    'edit'.$this->post_type.'s' => true,
-                    'edit_others_'.$this->post_type.'s' => true,
-                    'publish_'.$this->post_type.'s' => true,
-                    'read_private_'.$this->post_type.'s' => true,
-
-                    'edit_files' => true,
-                    'upload_files' => true,
-                ]
+                "permissions" => $permissions
             ];
+        }
+        if ( isset( $expected_roles["administrator"]["permissions"] ) ){
+            foreach( $permissions as $permission => $value ) {
+                $expected_roles["administrator"]["permissions"][$permission] = true;
+            }
         }
         return $expected_roles;
     }

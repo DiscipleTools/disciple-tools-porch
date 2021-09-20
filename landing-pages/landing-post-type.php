@@ -118,7 +118,7 @@ class DT_Porch_Landing_Post_Type
                 'capability_type' => $this->post_type,
                 'hierarchical' => true,
                 'show_in_rest' => true,
-                'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' )
+                'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt',  'wp-block-styles' , 'align-wide' )
             ) /* end of options */
         ); /* end of register post type */
     } // End register_post_type()
