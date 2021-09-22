@@ -1,7 +1,5 @@
 ![Plugin Banner](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-porch/master/support/documentation/banner.png)
 
-[![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-porch.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-porch)
-
 # Disciple Tools - Porch
 
 Adds a customizable home page and landing page system on the public side of a Disciple Tools system.
@@ -46,3 +44,5 @@ in the [Discussions](https://github.com/DiscipleTools/disciple-tools-porch/discu
 code contributions are welcome using the [Pull Request](https://github.com/DiscipleTools/disciple-tools-porch/pulls)
 system for git. For a more details on contribution see the
 [contribution guidelines](https://github.com/DiscipleTools/disciple-tools-porch/blob/master/CONTRIBUTING.md).
+
+[![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-porch.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-porch)
