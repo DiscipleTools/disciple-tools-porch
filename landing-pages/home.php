@@ -8,6 +8,7 @@ class DT_Porch_Landing_Home extends DT_Magic_Url_Base
     public $type = PORCH_LANDING_TYPE;
     public $post_type = PORCH_LANDING_POST_TYPE;
     public $meta_key = PORCH_LANDING_META_KEY;
+    public $home_post_id = 0;
 
     private static $_instance = null;
     public static function instance() {
@@ -20,8 +21,11 @@ class DT_Porch_Landing_Home extends DT_Magic_Url_Base
     public function __construct() {
         parent::__construct();
 
+        $this->home_post_id = get_option( PORCH_LANDING_META_KEY . '_home_page' );
+
         $url = dt_get_url_path();
-        if ( empty( $url ) && ! dt_is_rest() ) {
+        if ( empty( $url ) && ! dt_is_rest() && ! empty( $this->home_post_id ) ) {
+
             require_once( 'enqueue.php' );
 
             // register url and access
