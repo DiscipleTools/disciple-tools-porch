@@ -10,7 +10,7 @@ class DT_Porch_Landing_Enqueue
         wp_enqueue_script( 'porch-site-js' );
     }
 
-    public static function load_allowed_scripts($allowed_js) {
+    public static function load_allowed_scripts( $allowed_js) {
         if ( isset( $allowed_js['shared-functions-js'] ) ) {
             unset( $allowed_js['shared-functions-js'] );
         }
@@ -29,28 +29,22 @@ class DT_Porch_Landing_Enqueue
         ]);
     }
 
-    public static function load_allowed_styles($allowed_css) {
-//        return $new_allowed_css =  array_merge( $allowed_css, [
-//            'jquery-ui-site-css',
-//            'porch-style-css',
-//            'animate-css',
-//            'themeisle-gutenberg-animation-style',
-//            'genesis-blocks-style-css',
-//            'genesis-blocks-block-editor-css',
-//        ]);
-
-
+    public static function load_allowed_styles( $allowed_css) {
         return [
             'jquery-ui-site-css',
             'porch-style-css',
-            'animate-css',
+            'animate-css', // animation plugin
             'wp-block-library',
             'themeisle-gutenberg-animation-style',
-
-            'genesis-blocks-dismiss-js',
+            'genesis-blocks-dismiss-js', // genesis block plugin
             'genesis-blocks-style-css',
             'genesis-blocks-block-editor-css',
-
+            'uagb-block-editor-css', // ultimate Gutenberg editor
+            'uagb-block-common-editor-css',
+            'uagb-slick-css',
+            'uagb-block-css',
+            'uagb-style-css',
+            'uagb-notice-settings'
         ];
     }
 }

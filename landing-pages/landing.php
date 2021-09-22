@@ -1,5 +1,5 @@
 <?php
-
+if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
 class DT_Porch_Landing extends DT_Magic_Url_Base
 {
@@ -45,11 +45,11 @@ class DT_Porch_Landing extends DT_Magic_Url_Base
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return DT_Porch_Landing_Enqueue::load_allowed_scripts( $allowed_js);
+        return DT_Porch_Landing_Enqueue::load_allowed_scripts( $allowed_js );
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
-        return DT_Porch_Landing_Enqueue::load_allowed_styles( $allowed_css);
+        return DT_Porch_Landing_Enqueue::load_allowed_styles( $allowed_css );
     }
 
     public function wp_enqueue_scripts() {

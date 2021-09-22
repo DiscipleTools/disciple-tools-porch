@@ -1,7 +1,5 @@
 <?php
-if ( !defined( 'ABSPATH' )) {
-    exit;
-} // Exit if accessed directly.
+if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
 
 /**
@@ -61,7 +59,7 @@ class DT_Porch_Landing_Roles
             ];
         }
         if ( isset( $expected_roles["administrator"]["permissions"] ) ){
-            foreach( $permissions as $permission => $value ) {
+            foreach ( $permissions as $permission => $value ) {
                 $expected_roles["administrator"]["permissions"][$permission] = true;
             }
         }
