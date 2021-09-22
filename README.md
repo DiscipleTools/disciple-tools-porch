@@ -1,5 +1,6 @@
 # NOT YET FOR PUBLIC RELEASE!
 
+![Plugin Banner](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-porch/master/support/documentation/banner.png)
 
 [![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-porch.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-porch)
 
