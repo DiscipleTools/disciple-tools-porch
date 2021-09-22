@@ -23,7 +23,7 @@
   },
   "icon": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-porch/master/support/documentation/icon.png",
   "sections": {
-    "description": "Add a landing page site in front of Disciple Tools, we call this a front porch. This plugin is a template to quick start your porch project.",
+    "description": "Adds a customizable home page and landing page system on the public side of a Disciple Tools system.",
     "installation": "(Required) You must have Disciple.Tools Theme installed before using this plugin. Once Disciple.Tools is installed, you can use the normal Plugin system to install the plugin.",
     "changelog": ""
   }

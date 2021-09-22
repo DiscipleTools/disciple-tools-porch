@@ -6,16 +6,13 @@
 
 # Disciple Tools - Porch
 
-Adds a customizable home page and landing page system on the public side of Disciple Tools.
+Adds a customizable home page and landing page system on the public side of a Disciple Tools system.
 
 ## Purpose
 
-For media to movement efforts that want to run a single environment for Disciple Tools and a Landing Page site. When marketing
-in Facebook or Google Advertising or running a small public site, you often need to host a public site and separately host
-Disciple Tools on another site.
+Host a micro-site home page and unlimited landing pages in the public front of your Disciple.Tools.
 
-With this plugin you can create a simple, dynamic home page and numberous landing pages to receive traffic from advertising.
-It is also a great way to host lead forms that are routed directly into Disciple Tools for follow up.
+This allows a media effort to host a single server with a simple website in front of the Disciple Tools system.
 
 ## Usage
 
@@ -35,6 +32,8 @@ It is also a great way to host lead forms that are routed directly into Disciple
 ## Recommended
 
 - Genesis Block Editor
+- Blocks Animation: CSS Animations for Gutenberg Blocks
+- Ultimate Addons for Gutenberg
 
 ## Installing
 
@@ -49,8 +48,3 @@ in the [Discussions](https://github.com/DiscipleTools/disciple-tools-porch/discu
 code contributions are welcome using the [Pull Request](https://github.com/DiscipleTools/disciple-tools-porch/pulls)
 system for git. For a more details on contribution see the
 [contribution guidelines](https://github.com/DiscipleTools/disciple-tools-porch/blob/master/CONTRIBUTING.md).
-
-
-## Screenshots
-
-![screenshot](support/documentation/community/starter-banners/banner-blue-green.png)
