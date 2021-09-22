@@ -1,6 +1,6 @@
 {
 
-  "name": "Disciple Tools - Porch",
+  "name": "Disciple.Tools - Porch",
   "version": "0.1",
   "last_updated": "2021-03",
   "author": "Disciple Tools",
@@ -19,10 +19,10 @@
   "tested": "5.7",
   "upgrade_notice": "Upgrade to get the latest features.",
   "banners": {
-    "low": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-porch/master/documentation/banner.png",
-    "high": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-porch/master/documentation/banner.png"
+    "low": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-porch/master/support/documentation/banner.png",
+    "high": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-porch/master/support/documentation/banner.png"
   },
-  "icon": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-porch/master/support/documentation/porch-template-icon.png",
+  "icon": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-porch/master/support/documentation/icon.png",
   "sections": {
     "description": "Add a landing page site in front of Disciple Tools, we call this a front porch. This plugin is a template to quick start your porch project.",
     "installation": "(Required) You must have Disciple.Tools Theme installed before using this plugin. Once Disciple.Tools is installed, you can use the normal Plugin system to install the plugin.",

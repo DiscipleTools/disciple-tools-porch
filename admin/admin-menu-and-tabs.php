@@ -63,17 +63,12 @@ class DT_Porch_Landing_Menu {
             <h2 class="nav-tab-wrapper">
                 <a href="<?php echo esc_attr( $link ) . 'general' ?>"
                    class="nav-tab <?php echo esc_html( ( $tab == 'general' || !isset( $tab ) ) ? 'nav-tab-active' : '' ); ?>">General</a>
-<!--                <a href="--><?php //echo esc_attr( $link ) . 'second' ?><!--" class="nav-tab --><?php //echo esc_html( ( $tab == 'second' || !isset( $tab ) ) ? 'nav-tab-active' : '' ); ?><!--">Second</a>-->
             </h2>
 
             <?php
             switch ($tab) {
                 case "general":
                     $object = new DT_Porch_Landing_Tab_General();
-                    $object->content();
-                    break;
-                case "second":
-                    $object = new DT_Porch_Landing_Tab_Second();
                     $object->content();
                     break;
                 default:
@@ -97,7 +92,7 @@ class DT_Porch_Landing_Tab_General {
         ?>
         <div class="wrap">
             <div id="poststuff">
-                <div id="post-body" class="metabox-holder columns-1">
+                <div id="post-body" class="metabox-holder columns-2">
                     <div id="post-body-content">
                         <!-- Main Column -->
 
@@ -105,6 +100,15 @@ class DT_Porch_Landing_Tab_General {
 
                         <!-- End Main Column -->
                     </div><!-- end post-body-content -->
+                    <div id="postbox-container-1" class="postbox-container">
+                        <!-- Right Column -->
+
+                        <?php $this->right_column() ?>
+
+                        <!-- End Right Column -->
+                    </div><!-- postbox-container 1 -->
+                    <div id="postbox-container-2" class="postbox-container">
+                    </div><!-- postbox-container 2 -->
                 </div><!-- post-body meta box container -->
             </div><!--poststuff end -->
         </div><!-- wrap end -->
@@ -178,90 +182,40 @@ class DT_Porch_Landing_Tab_General {
         <table class="widefat striped">
             <thead>
                 <tr>
-                    <th>Information</th>
+                    <th>Supported Editor Plugins</th>
                 </tr>
             </thead>
             <tbody>
             <tr>
                 <td>
-                    Content
+                   <p>
+                       Because of the security structure of Disciple.Tools, some features of standard Wordpress are not available and not
+                        all plugins will be compatible with this porch plugin.
+                   </p>
+                    <p>
+                        A few top editor/site builder plugins are supported by this porch plugin. The list below are those we recommend and
+                        support in this plugin.
+                    </p>
                 </td>
             </tr>
-            </tbody>
-        </table>
-        <br>
-        <!-- End Box -->
-        <?php
-    }
-}
-
-
-/**
- * Class DT_Porch_Tab_Second
- */
-class DT_Porch_Landing_Tab_Second {
-    public function content() {
-        ?>
-        <div class="wrap">
-            <div id="poststuff">
-                <div id="post-body" class="metabox-holder columns-2">
-                    <div id="post-body-content">
-                        <!-- Main Column -->
-
-                        <?php $this->main_column() ?>
-
-                        <!-- End Main Column -->
-                    </div><!-- end post-body-content -->
-                    <div id="postbox-container-1" class="postbox-container">
-                        <!-- Right Column -->
-
-                        <?php $this->right_column() ?>
-
-                        <!-- End Right Column -->
-                    </div><!-- postbox-container 1 -->
-                    <div id="postbox-container-2" class="postbox-container">
-                    </div><!-- postbox-container 2 -->
-                </div><!-- post-body meta box container -->
-            </div><!--poststuff end -->
-        </div><!-- wrap end -->
-        <?php
-    }
-
-    public function main_column() {
-        ?>
-        <!-- Box -->
-        <table class="widefat striped">
-            <thead>
-                <tr>
-                    <th>Header</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        Content
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-        <!-- End Box -->
-        <?php
-    }
-
-    public function right_column() {
-        ?>
-        <!-- Box -->
-        <table class="widefat striped">
-            <thead>
-                <tr>
-                    <th>Information</th>
-                </tr>
-            </thead>
-            <tbody>
             <tr>
                 <td>
-                    Content
+                    <h3><a href="https://wordpress.org/plugins/genesis-blocks/">Genesis Blocks</a></h3>
+                    <p>Genesis Blocks is a collection of page building blocks for the Gutenberg block editor.</p>
+                    <p><a href="https://wordpress.org/plugins/genesis-blocks/">Go to Plugin Website</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3><a href="https://wordpress.org/plugins/blocks-animation/">Blocks Animation: CSS Animations for Gutenberg Blocks</a></h3>
+                    <p>Blocks Animation allows you to add CSS Animations to all of your Gutenberg blocks in the most elegant way.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3><a href="https://wordpress.org/plugins/ultimate-addons-for-gutenberg/">Ultimate Addons for Gutenberg</a></h3>
+                    <p>Power-up the Gutenberg editor with advanced and powerful blocks that help you build websites in no time!</p>
+                    <p><a href="https://wordpress.org/plugins/ultimate-addons-for-gutenberg/">Go to Plugin Website</a></p>
                 </td>
             </tr>
             </tbody>

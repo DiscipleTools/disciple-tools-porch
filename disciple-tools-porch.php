@@ -78,10 +78,10 @@ class DT_Porch {
 
 
         if ( ! defined( 'PORCH_LANDING_ROOT' ) ) {
-            define( 'PORCH_LANDING_ROOT', 'p' ); // Alphanumeric key. Use underscores not hyphens. No special characters.
+            define( 'PORCH_LANDING_ROOT', 'l' ); // Alphanumeric key. Use underscores not hyphens. No special characters.
         }
         if ( ! defined( 'PORCH_LANDING_TYPE' ) ) {
-            define( 'PORCH_LANDING_TYPE', 'page' ); // Alphanumeric key. Use underscores not hyphens. No special characters. Must be less than 20 characters
+            define( 'PORCH_LANDING_TYPE', 'p' ); // Alphanumeric key. Use underscores not hyphens. No special characters. Must be less than 20 characters
         }
         if ( ! defined( 'PORCH_LANDING_META_KEY' ) ) {
             define( 'PORCH_LANDING_META_KEY', PORCH_LANDING_ROOT . '_' . PORCH_LANDING_TYPE . '_magic_key' ); // Alphanumeric key. Use underscores not hyphens. No special characters. Must be less than 20 characters
