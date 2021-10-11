@@ -113,7 +113,6 @@ class DT_Porch {
                 }
             }
 
-            require_once( 'support/required-plugins/class-tgm-plugin-activation.php' );
             require_once( 'support/required-plugins/config-required-plugins.php' );
 
             add_filter( 'plugin_row_meta', [ $this, 'plugin_description_links' ], 10, 4 ); // admin plugin page description
