@@ -36,6 +36,10 @@ This allows a media effort to host a single server with a simple website in fron
 - Install as a standard Disciple.Tools/Wordpress plugin in the system Admin/Plugins area.
 - Requires the user role of Administrator.
 
+## Set Up Instructions:
+
+https://github.com/DiscipleTools/disciple-tools-porch/wiki
+
 ## Contribution
 
 Contributions welcome. You can report issues and bugs in the
