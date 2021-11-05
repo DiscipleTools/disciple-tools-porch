@@ -38,13 +38,13 @@ add_action( 'tgmpa_register', function () {
      */
     $plugins = array(
 
-//        array(
-//            'name'                  => 'Disciple Tools - Custom Login',
-//            'slug'                  => 'disciple-tools-custom-login',
-//             'source'                => 'https://github.com/DiscipleTools/disciple-tools-custom-login/releases/latest/download/disciple-tools-custom-login.zip',
-//            'required'              => false,
-//            'version'               => '0.1',
-//        ),
+        //        array(
+        //            'name'                  => 'Disciple Tools - Custom Login',
+        //            'slug'                  => 'disciple-tools-custom-login',
+        //             'source'                => 'https://github.com/DiscipleTools/disciple-tools-custom-login/releases/latest/download/disciple-tools-custom-login.zip',
+        //            'required'              => false,
+        //            'version'               => '0.1',
+        //        ),
 
         array(
             'name'                  => 'Genesis Blocks',
