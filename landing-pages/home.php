@@ -83,16 +83,6 @@ class DT_Porch_Landing_Home extends DT_Magic_Url_Base
     public function footer_javascript(){
         ?>
         <script>
-            let jsObject = [<?php echo json_encode([
-                'map_key' => DT_Mapbox_API::get_key(),
-                'root' => esc_url_raw( rest_url() ),
-                'nonce' => wp_create_nonce( 'wp_rest' ),
-                'parts' => $this->parts,
-                'translations' => [
-                    'add' => __( 'Add Magic', 'disciple_tools' ),
-                ],
-            ]) ?>][0]
-
             jQuery(document).ready(function(){
                 jQuery(document).foundation(); /* important. required when not loading site-js */
             })
