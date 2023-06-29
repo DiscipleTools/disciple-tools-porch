@@ -10,13 +10,8 @@ class DT_Porch_Landing_Enqueue
         wp_enqueue_script( 'porch-site-js' );
     }
 
-    public static function load_allowed_scripts( $allowed_js) {
-        if ( isset( $allowed_js['shared-functions-js'] ) ) {
-            unset( $allowed_js['shared-functions-js'] );
-        }
-        if ( isset( $allowed_js['site-js'] ) ) {
-            unset( $allowed_js['site-js'] );
-        }
+    public static function load_allowed_scripts( $allowed_js ) {
+        $allowed_js = array_diff( $allowed_js, [ 'site-js', 'shared-functions' ] );
 
         return array_merge( $allowed_js, [
             'jquery',
@@ -29,7 +24,7 @@ class DT_Porch_Landing_Enqueue
         ]);
     }
 
-    public static function load_allowed_styles( $allowed_css) {
+    public static function load_allowed_styles( $allowed_css ) {
         return [
             'jquery-ui-site-css',
             'porch-style-css',
