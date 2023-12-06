@@ -39,7 +39,8 @@ class DT_Porch_Landing_Enqueue
             'uagb-slick-css',
             'uagb-block-css',
             'uagb-style-css',
-            'uagb-notice-settings'
+            'uagb-notice-settings',
+            'classic-theme-styles',
         ];
     }
 }
