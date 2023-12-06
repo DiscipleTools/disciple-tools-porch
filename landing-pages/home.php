@@ -19,12 +19,12 @@ class DT_Porch_Landing_Home extends DT_Magic_Url_Base
     } // End instance()
 
     public function __construct() {
-        parent::__construct();
-
         $this->home_post_id = get_option( PORCH_LANDING_META_KEY . '_home_page' );
 
         $url = dt_get_url_path();
         if ( empty( $url ) && ! dt_is_rest() && ! empty( $this->home_post_id ) ) {
+            $this->page_title = get_bloginfo( 'name' );
+            parent::__construct();
 
             require_once( 'enqueue.php' );
 
