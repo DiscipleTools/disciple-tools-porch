@@ -5,7 +5,7 @@
  * Description: Adds a customizable home page and landing page system on the public side of Disciple Tools.
  * Text Domain: disciple-tools-porch
  * Domain Path: /languages
- * Version:  1.0.3
+ * Version:  1.1.0
  * Author URI: https://github.com/DiscipleTools
  * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-porch
  * Requires at least: 4.7.0
