@@ -45,6 +45,7 @@ class DT_Porch_Landing_Post_Type
         add_action( 'init', [ $this, 'register_post_type' ] );
         add_action( 'transition_post_status', [ $this, 'transition_post' ], 10, 3 );
         add_action( 'add_meta_boxes', [ $this, 'add_meta_box' ] );
+        add_action( 'save_post', [ $this, 'save_meta_box' ], 10, 2 );
 
         if ( is_admin() && isset( $_GET['post_type'] ) && PORCH_LANDING_POST_TYPE === $_GET['post_type'] ){
 
@@ -57,12 +58,99 @@ class DT_Porch_Landing_Post_Type
     public function add_meta_box( $post_type ) {
         if ( PORCH_LANDING_POST_TYPE === $post_type ) {
             add_meta_box( PORCH_LANDING_POST_TYPE . '_custom_permalink', PORCH_LANDING_POST_TYPE_SINGLE . ' Url', [ $this, 'meta_box_custom_permalink' ], PORCH_LANDING_POST_TYPE, 'side', 'default' );
+            
+            add_meta_box(
+                'porch_page_title_meta_box',
+                'Page Title',
+                [ $this, 'meta_box_page_title' ],
+                PORCH_LANDING_POST_TYPE,
+                'normal',
+                'high'
+            );
+
+            add_meta_box(
+                'porch_meta_description_meta_box',
+                'Meta Description',
+                [ $this, 'meta_box_meta_description' ],
+                PORCH_LANDING_POST_TYPE,
+                'normal',
+                'high'
+            );
         }
     }
 
     public function meta_box_custom_permalink( $post ) {
         $public_key = get_post_meta( $post->ID, PORCH_LANDING_META_KEY, true );
         echo '<a href="' . esc_url( trailingslashit( site_url() ) ) . esc_attr( PORCH_LANDING_ROOT ) . '/' . esc_attr( PORCH_LANDING_TYPE ) . '/' . esc_attr( $public_key ) . '">'. esc_url( trailingslashit( site_url() ) ) . esc_attr( PORCH_LANDING_ROOT ) . '/' . esc_attr( PORCH_LANDING_TYPE ) . '/' . esc_attr( $public_key ) .'</a>';
+    }
+
+    public function meta_box_page_title( $post ) {
+        // Add nonce for security
+        wp_nonce_field( 'porch_page_title_nonce', 'porch_page_title_nonce' );
+        
+        // Get existing value
+        $page_title = get_post_meta( $post->ID, 'porch_page_title', true );
+        
+        // Output the field
+        ?>
+        <p>
+            <label for="porch_page_title">Custom Page Title:</label><br>
+            <input type="text" id="porch_page_title" name="porch_page_title" value="<?php echo esc_attr( $page_title ); ?>" style="width: 100%;">
+            <span class="description">This title will be used when viewing the landing page. If left empty, the post title will be used instead.</span>
+        </p>
+        <?php
+    }
+
+    public function meta_box_meta_description( $post ) {
+        // Add nonce for security
+        wp_nonce_field( 'porch_meta_description_nonce', 'porch_meta_description_nonce' );
+        
+        // Get existing value
+        $meta_description = get_post_meta( $post->ID, 'porch_meta_description', true );
+        
+        // Output the field
+        ?>
+        <p>
+            <label for="porch_meta_description">Meta Description:</label><br>
+            <textarea id="porch_meta_description" name="porch_meta_description" rows="3" style="width: 100%;"><?php echo esc_textarea( $meta_description ); ?></textarea>
+            <span class="description">This description will be used in the meta tags for SEO purposes. Recommended length is 150-160 characters.</span>
+        </p>
+        <?php
+    }
+
+    public function save_meta_box( $post_id, $post ) {
+        // Check if our nonce is set
+        if ( ! isset( $_POST['porch_page_title_nonce'] ) || ! isset( $_POST['porch_meta_description_nonce'] ) ) {
+            return;
+        }
+
+        // Verify that the nonces are valid
+        if ( ! wp_verify_nonce( $_POST['porch_page_title_nonce'], 'porch_page_title_nonce' ) ||
+             ! wp_verify_nonce( $_POST['porch_meta_description_nonce'], 'porch_meta_description_nonce' ) ) {
+            return;
+        }
+
+        // If this is an autosave, our form has not been submitted, so we don't want to do anything
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+            return;
+        }
+
+        // Check the user's permissions
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
+
+        // Sanitize and save the page title
+        if ( isset( $_POST['porch_page_title'] ) ) {
+            $page_title = sanitize_text_field( wp_unslash( $_POST['porch_page_title'] ) );
+            update_post_meta( $post_id, 'porch_page_title', $page_title );
+        }
+
+        // Sanitize and save the meta description
+        if ( isset( $_POST['porch_meta_description'] ) ) {
+            $meta_description = sanitize_textarea_field( wp_unslash( $_POST['porch_meta_description'] ) );
+            update_post_meta( $post_id, 'porch_meta_description', $meta_description );
+        }
     }
 
     /**
