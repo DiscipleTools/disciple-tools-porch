@@ -97,6 +97,7 @@ class DT_Porch_Landing_Tab_General {
                         <!-- Main Column -->
 
                         <?php $this->main_column() ?>
+                        <?php $this->google_analytics_box() ?>
 
                         <!-- End Main Column -->
                     </div><!-- end post-body-content -->
@@ -175,6 +176,48 @@ class DT_Porch_Landing_Tab_General {
         <!-- End Box -->
         <?php
     }
+    public function google_analytics_box() {
+
+        if ( isset( $_POST['google_analytics_id'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['google_analytics_nonce'] ) ), 'google_analytics'. get_current_user_id() ) ) {
+            $id = sanitize_text_field( wp_unslash( $_POST['google_analytics_id'] ) );
+            update_option( PORCH_LANDING_META_KEY . '_google_analytics_id', $id, true );
+        }
+
+        $selected = get_option( PORCH_LANDING_META_KEY . '_google_analytics_id' );
+        $args = array(
+            'post_type' => PORCH_LANDING_POST_TYPE,
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'orderby' => 'post_title',
+            'order' => 'ASC'
+        );
+        $list = new WP_Query( $args );
+        ?>
+        <!-- Box -->
+        <form method="post">
+            <?php wp_nonce_field( 'google_analytics'. get_current_user_id(), 'google_analytics_nonce' ) ?>
+        <table class="widefat striped">
+            <thead>
+                <tr>
+                    <th>Google Analytics Script</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <td>
+                    <input type="text" name="google_analytics_id" placeholder="ex. UA-1234543490" value="<?php echo esc_attr( get_option( PORCH_LANDING_META_KEY . '_google_analytics_id' ) ) ?>">
+
+                    <button type="submit" class="button">Update</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </form>
+        <br>
+        <!-- End Box -->
+        <?php
+    }
 
     public function right_column() {
         ?>
@@ -225,4 +268,5 @@ class DT_Porch_Landing_Tab_General {
         <?php
     }
 }
+
 

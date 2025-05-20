@@ -125,6 +125,16 @@ class DT_Porch_Landing extends DT_Magic_Url_Base
      * Add meta tags to the head section
      */
     public function add_meta_tags() {
+        $google_analytics_id = get_option( PORCH_LANDING_META_KEY . '_google_analytics_id' );
+        if ( $google_analytics_id ) {
+            echo '<script async src="https://www.googletagmanager.com/gtag/js?id=' . $google_analytics_id . '"></script>';
+            echo '<script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag("js", new Date());
+            gtag("config", "' . $google_analytics_id . '");
+            </script>';
+        }
         if (!empty($this->meta_description)) {
             echo '<meta name="description" content="' . esc_attr($this->meta_description) . '">' . "\n";
         }
