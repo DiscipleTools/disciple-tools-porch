@@ -76,6 +76,14 @@ class DT_Porch_Landing_Post_Type
                 'normal',
                 'high'
             );
+        add_meta_box(
+            'porch_admin_notes_meta_box',
+            'Admin Notes',
+            [ $this, 'meta_box_admin_notes' ],
+            PORCH_LANDING_POST_TYPE,
+            'side',
+            'default'
+        );
         }
     }
 
@@ -118,15 +126,35 @@ class DT_Porch_Landing_Post_Type
         <?php
     }
 
+    public function meta_box_admin_notes( $post ) {
+        // Add nonce for security
+        wp_nonce_field( 'porch_admin_notes_nonce', 'porch_admin_notes_nonce' );
+        
+        // Get existing value
+        $admin_notes = get_post_meta( $post->ID, 'porch_admin_notes', true );
+        
+        // Output the field
+        ?>
+        <p>
+            <label for="porch_admin_notes">Admin Notes:</label><br>
+            <textarea id="porch_admin_notes" name="porch_admin_notes" rows="3" style="width: 100%;"><?php echo esc_textarea( $admin_notes ); ?></textarea>
+            <span class="description">This is a private note for the admin to keep track of any special instructions or notes.</span>   
+        </p>
+        <?php
+    }
+
     public function save_meta_box( $post_id, $post ) {
-        // Check if our nonce is set
-        if ( ! isset( $_POST['porch_page_title_nonce'] ) || ! isset( $_POST['porch_meta_description_nonce'] ) ) {
+        // Check if our nonces are set
+        if ( ! isset( $_POST['porch_page_title_nonce'] ) || 
+             ! isset( $_POST['porch_meta_description_nonce'] ) ||
+             ! isset( $_POST['porch_admin_notes_nonce'] ) ) {
             return;
         }
 
         // Verify that the nonces are valid
         if ( ! wp_verify_nonce( $_POST['porch_page_title_nonce'], 'porch_page_title_nonce' ) ||
-             ! wp_verify_nonce( $_POST['porch_meta_description_nonce'], 'porch_meta_description_nonce' ) ) {
+             ! wp_verify_nonce( $_POST['porch_meta_description_nonce'], 'porch_meta_description_nonce' ) ||
+             ! wp_verify_nonce( $_POST['porch_admin_notes_nonce'], 'porch_admin_notes_nonce' ) ) {
             return;
         }
 
@@ -150,6 +178,12 @@ class DT_Porch_Landing_Post_Type
         if ( isset( $_POST['porch_meta_description'] ) ) {
             $meta_description = sanitize_textarea_field( wp_unslash( $_POST['porch_meta_description'] ) );
             update_post_meta( $post_id, 'porch_meta_description', $meta_description );
+        }
+
+        // Sanitize and save the admin notes
+        if ( isset( $_POST['porch_admin_notes'] ) ) {
+            $admin_notes = sanitize_textarea_field( wp_unslash( $_POST['porch_admin_notes'] ) );
+            update_post_meta( $post_id, 'porch_admin_notes', $admin_notes );
         }
     }
 
