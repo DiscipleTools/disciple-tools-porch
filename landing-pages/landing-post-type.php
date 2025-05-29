@@ -273,6 +273,7 @@ class DT_Porch_Landing_Post_Type
     public function set_custom_edit_columns( $columns) {
         unset( $columns['author'] );
         $columns['url'] = 'URL';
+        $columns['porch_admin_notes'] = 'Admin Notes';
 
         return $columns;
     }
@@ -283,6 +284,10 @@ class DT_Porch_Landing_Post_Type
             case 'url' :
                 $public_key = get_post_meta( $post_id, PORCH_LANDING_META_KEY, true );
                 echo '<a href="' . esc_url( trailingslashit( site_url() ) ) . esc_attr( PORCH_LANDING_ROOT ) . '/' . esc_attr( PORCH_LANDING_TYPE ) . '/' . esc_attr( $public_key ) . '">'. esc_url( trailingslashit( site_url() ) ) . esc_attr( PORCH_LANDING_ROOT ) . '/' . esc_attr( PORCH_LANDING_TYPE ) . '/' . esc_attr( $public_key ) .'</a>';
+                break;
+            case 'porch_admin_notes' :
+                $admin_notes = get_post_meta( $post_id, 'porch_admin_notes', true );
+                echo $admin_notes;
                 break;
         }
     }
