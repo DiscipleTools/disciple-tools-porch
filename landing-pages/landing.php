@@ -40,17 +40,17 @@ class DT_Porch_Landing extends DT_Magic_Url_Base
         $post_id = $this->get_post_id_from_url();
         if ($post_id) {
             // Load the page title from post meta, fallback to post title if not set
-            $this->page_title = get_post_meta($post_id, 'porch_page_title', true);
-            if (empty($this->page_title)) {
-                $post = get_post($post_id);
+            $this->page_title = get_post_meta( $post_id, 'porch_page_title', true );
+            if (empty( $this->page_title )) {
+                $post = get_post( $post_id );
                 $this->page_title = $post ? $post->post_title : PORCH_LANDING_POST_TYPE_SINGLE;
             }
 
             // Load the meta description
-            $this->meta_description = get_post_meta($post_id, 'porch_meta_description', true);
-            if (empty($this->meta_description)) {
-                $post = get_post($post_id);
-                $this->meta_description = $post ? wp_trim_words($post->post_content, 25, '...') : '';
+            $this->meta_description = get_post_meta( $post_id, 'porch_meta_description', true );
+            if (empty( $this->meta_description )) {
+                $post = get_post( $post_id );
+                $this->meta_description = $post ? wp_trim_words( $post->post_content, 25, '...' ) : '';
             }
         }
 
@@ -66,17 +66,17 @@ class DT_Porch_Landing extends DT_Magic_Url_Base
 
     /**
      * Get the post ID from the URL parameters
-     * 
+     *
      * @return int|false The post ID if found, false otherwise
      */
     private function get_post_id_from_url() {
         $url = dt_get_url_path();
-        $parts = explode('/', $url);
-        
+        $parts = explode( '/', $url );
+
         // The URL format should be: root/type/public_key
-        if (count($parts) >= 3) {
+        if (count( $parts ) >= 3) {
             $public_key = $parts[2];
-            
+
             // Find the post with this public key
             $args = array(
                 'post_type' => $this->post_type,
@@ -84,8 +84,8 @@ class DT_Porch_Landing extends DT_Magic_Url_Base
                 'meta_value' => $public_key,
                 'posts_per_page' => 1
             );
-            
-            $query = new WP_Query($args);
+
+            $query = new WP_Query( $args );
             if ($query->have_posts()) {
                 $query->the_post();
                 $post_id = get_the_ID();
@@ -93,7 +93,7 @@ class DT_Porch_Landing extends DT_Magic_Url_Base
                 return $post_id;
             }
         }
-        
+
         return false;
     }
 
@@ -135,8 +135,8 @@ class DT_Porch_Landing extends DT_Magic_Url_Base
             gtag("config", "' . $google_analytics_id . '");
             </script>';
         }
-        if (!empty($this->meta_description)) {
-            echo '<meta name="description" content="' . esc_attr($this->meta_description) . '">' . "\n";
+        if ( !empty( $this->meta_description )) {
+            echo '<meta name="description" content="' . esc_attr( $this->meta_description ) . '">' . "\n";
         }
     }
 }

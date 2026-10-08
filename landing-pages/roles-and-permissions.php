@@ -118,6 +118,5 @@ class DT_Porch_Landing_Roles
         }
         return $allowed_wp_v2_paths;
     }
-
 } // End Class
 DT_Porch_Landing_Roles::instance();

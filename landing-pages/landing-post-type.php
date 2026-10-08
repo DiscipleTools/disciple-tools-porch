@@ -35,7 +35,7 @@ class DT_Porch_Landing_Post_Type
      * @param array $args
      * @param array $taxonomies
      */
-    public function __construct( $args = [], $taxonomies = []) {
+    public function __construct( $args = [], $taxonomies = [] ) {
         $this->post_type = PORCH_LANDING_POST_TYPE;
         $this->singular = PORCH_LANDING_POST_TYPE_SINGLE;
         $this->plural = PORCH_LANDING_POST_TYPE_PLURAL;
@@ -52,13 +52,12 @@ class DT_Porch_Landing_Post_Type
             add_filter( 'manage_'.$this->post_type.'_posts_columns', [ $this, 'set_custom_edit_columns' ] );
             add_action( 'manage_'.$this->post_type.'_posts_custom_column', [ $this, 'custom_column' ], 10, 2 );
         }
-
     } // End __construct()
 
     public function add_meta_box( $post_type ) {
         if ( PORCH_LANDING_POST_TYPE === $post_type ) {
             add_meta_box( PORCH_LANDING_POST_TYPE . '_custom_permalink', PORCH_LANDING_POST_TYPE_SINGLE . ' Url', [ $this, 'meta_box_custom_permalink' ], PORCH_LANDING_POST_TYPE, 'side', 'default' );
-            
+
             add_meta_box(
                 'porch_page_title_meta_box',
                 'Page Title',
@@ -76,14 +75,14 @@ class DT_Porch_Landing_Post_Type
                 'normal',
                 'high'
             );
-        add_meta_box(
-            'porch_admin_notes_meta_box',
-            'Admin Notes',
-            [ $this, 'meta_box_admin_notes' ],
-            PORCH_LANDING_POST_TYPE,
-            'side',
-            'default'
-        );
+            add_meta_box(
+                'porch_admin_notes_meta_box',
+                'Admin Notes',
+                [ $this, 'meta_box_admin_notes' ],
+                PORCH_LANDING_POST_TYPE,
+                'side',
+                'default'
+            );
         }
     }
 
@@ -95,10 +94,10 @@ class DT_Porch_Landing_Post_Type
     public function meta_box_page_title( $post ) {
         // Add nonce for security
         wp_nonce_field( 'porch_page_title_nonce', 'porch_page_title_nonce' );
-        
+
         // Get existing value
         $page_title = get_post_meta( $post->ID, 'porch_page_title', true );
-        
+
         // Output the field
         ?>
         <p>
@@ -112,10 +111,10 @@ class DT_Porch_Landing_Post_Type
     public function meta_box_meta_description( $post ) {
         // Add nonce for security
         wp_nonce_field( 'porch_meta_description_nonce', 'porch_meta_description_nonce' );
-        
+
         // Get existing value
         $meta_description = get_post_meta( $post->ID, 'porch_meta_description', true );
-        
+
         // Output the field
         ?>
         <p>
@@ -129,10 +128,10 @@ class DT_Porch_Landing_Post_Type
     public function meta_box_admin_notes( $post ) {
         // Add nonce for security
         wp_nonce_field( 'porch_admin_notes_nonce', 'porch_admin_notes_nonce' );
-        
+
         // Get existing value
         $admin_notes = get_post_meta( $post->ID, 'porch_admin_notes', true );
-        
+
         // Output the field
         ?>
         <p>
@@ -145,7 +144,7 @@ class DT_Porch_Landing_Post_Type
 
     public function save_meta_box( $post_id, $post ) {
         // Check if our nonces are set
-        if ( ! isset( $_POST['porch_page_title_nonce'] ) || 
+        if ( ! isset( $_POST['porch_page_title_nonce'] ) ||
              ! isset( $_POST['porch_meta_description_nonce'] ) ||
              ! isset( $_POST['porch_admin_notes_nonce'] ) ) {
             return;
@@ -238,7 +237,7 @@ class DT_Porch_Landing_Post_Type
                 'capability_type' => $this->post_type,
                 'hierarchical' => true,
                 'show_in_rest' => true,
-                'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt',  'wp-block-styles' , 'align-wide' )
+                'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'wp-block-styles', 'align-wide' )
             ) /* end of options */
         ); /* end of register post type */
     } // End register_post_type()
@@ -270,7 +269,7 @@ class DT_Porch_Landing_Post_Type
     }
 
     // Add the custom columns to the book post type:
-    public function set_custom_edit_columns( $columns) {
+    public function set_custom_edit_columns( $columns ) {
         unset( $columns['author'] );
         $columns['url'] = 'URL';
         $columns['porch_admin_notes'] = 'Admin Notes';
